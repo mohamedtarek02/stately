@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
-import { useI18n, useCookie } from "#imports";
+import { useCookie } from "#imports";
 import arweqaLogo from "@/assets/images/logos/arweqa-logo.svg";
 import saudiFlag from "@/assets/images/logos/saudi-flag.svg";
 import unitedkingdomFlag from "@/assets/images/logos/united-kingdom-flag.svg";
-
-const { t, locale } = useI18n({ useScope: "global" });
 
 const route = useRoute();
 
@@ -20,8 +18,8 @@ interface Section {
   name: string;
 }
 const sections: Section[] = [
-  { url: "home", name: t("Home") },
-  { url: "new-feeds", name: t("NewFeeds") },
+  { url: "home", name: "Home" },
+  { url: "demo", name: "Demo" },
 ];
 
 const handleScroll = () => {
@@ -61,33 +59,17 @@ function changeLanguage() {
     <div class="container nav-container">
       <div class="nav-links">
         <div class="img-con">
-          <img
-            :src="arweqaLogo"
-            alt="logo"
-            @click="$router.push(`/${locale}/home`)"
-          />
+          <img :src="arweqaLogo" alt="logo" @click="$router.push(`/home`)" />
         </div>
         <div class="router-links">
           <ul>
             <!-- Links -->
             <li v-for="section in sections" :key="section.id">
-              <NuxtLink :to="localePath({ name: section.url })">
+              <NuxtLink :to="{ name: section.url }">
                 <span class="text-white">
-                  {{ $t(section.name) }}
+                  {{ section.name }}
                 </span>
               </NuxtLink>
-            </li>
-            <!-- language -->
-            <li class="lang" @click="changeLanguage">
-              <div class="image-con">
-                <img
-                  :src="$i18n.locale === 'en' ? saudiFlag : unitedkingdomFlag"
-                  alt="lang-icon"
-                />
-              </div>
-              <span>
-                {{ $i18n.locale === "en" ? "AR" : "EN" }}
-              </span>
             </li>
           </ul>
         </div>

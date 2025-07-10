@@ -4,7 +4,7 @@ import { resolve } from "path";
 export default defineNuxtConfig({
   app: {
     head: {
-      title: "Arweqah",
+      title: "Stately",
       link: [{ rel: "icon", type: "image/svg", href: "/favicon.svg" }],
     },
   },
@@ -22,23 +22,6 @@ export default defineNuxtConfig({
     },
   },
 
-  i18n: {
-    langDir: "locales",
-    defaultLocale: "en", //Default if user not picked language yet
-    strategy: "prefix",
-    locales: [
-      {
-        code: "en",
-        file: "en.json",
-      },
-      {
-        code: "ar",
-        file: "ar.json",
-      },
-    ],
-    detectBrowserLanguage: false,
-  },
-
   build: {
     transpile: ["vuetify"],
   },
@@ -46,7 +29,6 @@ export default defineNuxtConfig({
   components: true,
 
   plugins: [
-    "@/plugins/axios.js",
     "@/plugins/pinia.js",
     "@/plugins/notification.js",
     "@/plugins/fontawesome.js",

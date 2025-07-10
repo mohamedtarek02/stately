@@ -4,9 +4,6 @@ definePageMeta({
   layout: "home",
 });
 
-import { useI18n } from "#imports";
-const { t } = useI18n({ useScope: "global" });
-
 interface Card {
   title: string;
   description: string;
@@ -17,25 +14,25 @@ interface Card {
 
 const cards: Card[] = [
   {
-    title: t("LatestContentTitle"),
-    description: t("LatestContentDesc"),
-    linkCaption: t("LatestContentLink"),
-    linkPath: "new-feeds",
+    title: "LatestContentTitle",
+    description: "LatestContentDesc",
+    linkCaption: "LatestContentLink",
+    linkPath: "demo",
     icon: "arrow-up-right-from-square",
   },
 
   {
-    title: t("ConnectWithOthersTitle"),
-    description: t("ConnectWithOthersDesc"),
-    linkCaption: t("CommingSoon"),
-    linkPath: "#",
+    title: "ConnectWithOthersTitle",
+    description: "ConnectWithOthersDesc",
+    linkCaption: "CommingSoon",
+    linkPath: "demo",
     icon: "comments",
   },
   {
-    title: t("JoinDiscussionsTitle"),
-    description: t("JoinDiscussionsDesc"),
-    linkCaption: t("CommingSoon"),
-    linkPath: "#",
+    title: "JoinDiscussionsTitle",
+    description: "JoinDiscussionsDesc",
+    linkCaption: "CommingSoon",
+    linkPath: "demo",
     icon: "users",
   },
 ];
@@ -46,18 +43,17 @@ const cards: Card[] = [
     <!-- Header -->
     <div class="text-center mb-16">
       <h1 class="text-5xl font-bold text-primary-500">
-        {{ $t("WelcomeHeader") }}
+        {{ "WelcomeHeader" }}
       </h1>
       <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-        {{ $t("WelcomeDescription") }}
+        {{ "WelcomeDescription" }}
       </p>
-      <NuxtLink :to="localePath({ name: 'new-feeds' })">
+      <NuxtLink :to="{ name: 'demo' }">
         <BaseButton class="flex mx-auto gap-2 items-center">
-          <span>{{ $t("ExploreFeeds") }}</span>
+          <span>{{ "ExploreFeeds" }}</span>
           <FontAwesomeIcon icon="fars fa-square-up-right" class="w-5 h-5" />
         </BaseButton>
       </NuxtLink>
-      
     </div>
 
     <!-- Feature Cards  -->

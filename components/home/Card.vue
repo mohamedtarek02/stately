@@ -42,7 +42,7 @@ defineProps({
       </p>
       <!-- Link -->
       <NuxtLink
-        :to="localePath({ name: linkPath })"
+        :to="{ name: linkPath }"
         class="text-blue-500 font-medium flex items-center hover:underline transition-colors gap-2"
       >
         {{ linkCaption }}
