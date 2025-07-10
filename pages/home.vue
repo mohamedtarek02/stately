@@ -20,7 +20,6 @@ const cards: Card[] = [
     linkPath: "demo",
     icon: "arrow-up-right-from-square",
   },
-
   {
     title: "ConnectWithOthersTitle",
     description: "ConnectWithOthersDesc",
