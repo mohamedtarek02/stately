@@ -57,6 +57,7 @@ const cards: Card[] = [
           <FontAwesomeIcon icon="fars fa-square-up-right" class="w-5 h-5" />
         </BaseButton>
       </NuxtLink>
+      
     </div>
 
     <!-- Feature Cards  -->
