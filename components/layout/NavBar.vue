@@ -16,12 +16,13 @@ onMounted(() => {
   <nav :class="['navbar', showNavbar ? 'show' : '']">
     <ul class="nav-left">
       <li><NuxtLink to="/">Home</NuxtLink></li>
-      <li><NuxtLink to="/products">Catalog</NuxtLink></li>
+      <li><NuxtLink to="/catalog">Catalog</NuxtLink></li>
       <li><NuxtLink to="/contact">Contact</NuxtLink></li>
     </ul>
     <div class="logo">STↃTELY</div>
     <ul class="nav-right">
-      <li>
+      <li class="flex gap-1 items-end">
+        <FontAwesomeIcon icon="fas fa-magnifying-glass" class="w-4 h-4" />
         <a href="#"><span class="material-symbols-outlined">search</span></a>
       </li>
       <li>

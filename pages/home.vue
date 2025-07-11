@@ -1,21 +1,25 @@
-<script setup lang="ts">
+<script setup>
+import { ref, onMounted } from "vue";
 definePageMeta({
   title: "Home",
   layout: "home",
 });
 
-setTimeout(() => {
-  const heroText = document.querySelector(".hero-text");
-  heroText.style.opacity = "1";
-  heroText.style.transform = "translateY(0)";
-}, 300);
+const heroTextItem = ref(null);
+
+onMounted(() => {
+  setTimeout(() => {
+    heroTextItem.value.style.opacity = "1";
+    heroTextItem.value.style.transform = "translateY(0)";
+  }, 300);
+});
 </script>
 
 <template>
   <div class="hero">
     <div class="blur-bg"></div>
     <img src="@/assets/images/homeimg.jpeg" alt="Hero Image" class="hero-img" />
-    <div class="hero-text">
+    <div class="hero-text" ref="heroTextItem">
       <h1>NEW DROP ONLINE NOW</h1>
       <a href="products.html" class="shop-btn-link">
         <button class="shop-btn">Shop Now</button>
@@ -40,7 +44,7 @@ setTimeout(() => {
   height: 100%;
   background-image: url("@/assets/images/homeimg.jpeg");
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
   filter: blur(25px);
   transform: scale(1.1);
   z-index: 0;
@@ -50,8 +54,8 @@ setTimeout(() => {
   position: relative;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center;
+  object-fit: cover;
+  object-position: left 15%;
   z-index: 1;
 }
 
