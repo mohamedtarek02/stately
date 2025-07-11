@@ -38,13 +38,6 @@ onMounted(() => {
 </template>
 
 <style scoped>
-@font-face {
-  font-family: "Brother Signature";
-  src: url("assets/fonts/BrotherSignature-7BWnK.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-}
-
 .navbar {
   opacity: 0;
   transform: translateY(-20px);
