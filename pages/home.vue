@@ -1,76 +1,94 @@
-<script setup lang="ts">
+<script setup>
+import { ref, onMounted } from "vue";
 definePageMeta({
   title: "Home",
   layout: "home",
 });
 
-interface Card {
-  title: string;
-  description: string;
-  linkCaption: string;
-  linkPath: string;
-  icon: string;
-}
+const heroTextItem = ref(null);
 
-const cards: Card[] = [
-  {
-    title: "LatestContentTitle",
-    description: "LatestContentDesc",
-    linkCaption: "LatestContentLink",
-    linkPath: "demo",
-    icon: "arrow-up-right-from-square",
-  },
-
-  {
-    title: "ConnectWithOthersTitle",
-    description: "ConnectWithOthersDesc",
-    linkCaption: "CommingSoon",
-    linkPath: "demo",
-    icon: "comments",
-  },
-  {
-    title: "JoinDiscussionsTitle",
-    description: "JoinDiscussionsDesc",
-    linkCaption: "CommingSoon",
-    linkPath: "demo",
-    icon: "users",
-  },
-];
+onMounted(() => {
+  setTimeout(() => {
+    heroTextItem.value.style.opacity = "1";
+    heroTextItem.value.style.transform = "translateY(0)";
+  }, 300);
+});
 </script>
 
 <template>
-  <main class="container py-8">
-    <!-- Header -->
-    <div class="text-center mb-16">
-      <h1 class="text-5xl font-bold text-primary-500">
-        {{ "WelcomeHeader" }}
-      </h1>
-      <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-        {{ "WelcomeDescription" }}
-      </p>
-      <NuxtLink :to="{ name: 'demo' }">
-        <BaseButton class="flex mx-auto gap-2 items-center">
-          <span>{{ "ExploreFeeds" }}</span>
-          <FontAwesomeIcon icon="fars fa-square-up-right" class="w-5 h-5" />
-        </BaseButton>
-      </NuxtLink>
+  <div class="hero">
+    <div class="blur-bg"></div>
+    <img src="@/assets/images/homeimg.jpeg" alt="Hero Image" class="hero-img" />
+    <div class="hero-text" ref="heroTextItem">
+      <h1>NEW DROP ONLINE NOW</h1>
+      <a href="products.html" class="shop-btn-link">
+        <button class="shop-btn">Shop Now</button>
+      </a>
     </div>
-
-    <!-- Feature Cards  -->
-    <div
-      class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 justify-center"
-      data-aos="fade-up"
-      data-aos-duration="800"
-    >
-      <HomeCard
-        v-for="(card, index) in cards"
-        :key="index"
-        :icon="card.icon"
-        :title="card.title"
-        :description="card.description"
-        :linkCaption="card.linkCaption"
-        :linkPath="card.linkPath"
-      />
-    </div>
-  </main>
+  </div>
 </template>
+
+<style scoped>
+.hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.blur-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("@/assets/images/homeimg.jpeg");
+  background-size: cover;
+  background-position: bottom;
+  filter: blur(25px);
+  transform: scale(1.1);
+  z-index: 0;
+}
+
+.hero-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left 15%;
+  z-index: 1;
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  color: white;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.9s ease-in-out;
+}
+
+.hero-text h1 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.shop-btn {
+  padding: 12px 24px;
+  background-color: white;
+  color: black;
+  border: none;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.shop-btn:hover {
+  background-color: black;
+  color: white;
+}
+</style>
