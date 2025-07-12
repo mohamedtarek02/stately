@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import { useRouter } from "vue-router";
 
 const showNavbar = ref(false);
-const router = useRouter();
 
 onMounted(() => {
   setTimeout(() => {
