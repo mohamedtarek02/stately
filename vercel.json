@@ -3,10 +3,16 @@
   "builds": [
     {
       "src": "nuxt.config.ts",
-      "use": "@nuxtjs/vercel-builder",
+      "use": "@nuxt/vercel-builder",
       "config": {
         "nodeVersion": "18.x"
       }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
     }
   ]
 }
