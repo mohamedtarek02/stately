@@ -21,7 +21,7 @@ onMounted(() => {
     <img src="@/assets/images/homeimg.jpeg" alt="Hero Image" class="hero-img" />
     <div class="hero-text" ref="heroTextItem">
       <h1>NEW DROP ONLINE NOW</h1>
-      <a href="products.html" class="shop-btn-link">
+      <a href="products" class="shop-btn-link">
         <button class="shop-btn">Shop Now</button>
       </a>
     </div>
